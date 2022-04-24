@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B14CE0E280F69A100E72D5C /* Jost-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE0C280F69A100E72D5C /* Jost-VariableFont_wght.ttf */; };
+		6B14CE0F280F69A100E72D5C /* Jost-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE0D280F69A100E72D5C /* Jost-Italic-VariableFont_wght.ttf */; };
+		6B14CE51280F6B6500E72D5C /* Jost-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE19280F6AC000E72D5C /* Jost-Black.ttf */; };
+		6B14CE52280F6B6900E72D5C /* Jost-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE21280F6AC000E72D5C /* Jost-BlackItalic.ttf */; };
+		6B14CE53280F6B6B00E72D5C /* Jost-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE12280F6AC000E72D5C /* Jost-Bold.ttf */; };
+		6B14CE54280F6B6E00E72D5C /* Jost-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE16280F6AC000E72D5C /* Jost-BoldItalic.ttf */; };
+		6B14CE55280F6B8000E72D5C /* Jost-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE22280F6AC000E72D5C /* Jost-ExtraBold.ttf */; };
+		6B14CE56280F6B8300E72D5C /* Jost-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE1E280F6AC000E72D5C /* Jost-ExtraBoldItalic.ttf */; };
+		6B14CE57280F6B8700E72D5C /* Jost-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE15280F6AC000E72D5C /* Jost-ExtraLight.ttf */; };
+		6B14CE58280F6B8A00E72D5C /* Jost-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE1B280F6AC000E72D5C /* Jost-ExtraLightItalic.ttf */; };
+		6B14CE59280F6B8E00E72D5C /* Jost-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE20280F6AC000E72D5C /* Jost-Italic.ttf */; };
+		6B14CE5A280F6B9000E72D5C /* Jost-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE1D280F6AC000E72D5C /* Jost-Light.ttf */; };
+		6B14CE5B280F6B9300E72D5C /* Jost-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE1A280F6AC000E72D5C /* Jost-LightItalic.ttf */; };
+		6B14CE5C280F6B9500E72D5C /* Jost-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE11280F6AC000E72D5C /* Jost-Medium.ttf */; };
+		6B14CE5D280F6B9900E72D5C /* Jost-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE17280F6AC000E72D5C /* Jost-MediumItalic.ttf */; };
+		6B14CE5E280F6B9B00E72D5C /* Jost-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE14280F6AC000E72D5C /* Jost-Regular.ttf */; };
+		6B14CE5F280F6BA000E72D5C /* Jost-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE13280F6AC000E72D5C /* Jost-SemiBold.ttf */; };
+		6B14CE60280F6BA600E72D5C /* Jost-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE1F280F6AC000E72D5C /* Jost-SemiBoldItalic.ttf */; };
+		6B14CE61280F6BA900E72D5C /* Jost-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE1C280F6AC000E72D5C /* Jost-Thin.ttf */; };
+		6B14CE62280F6BAC00E72D5C /* Jost-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE18280F6AC000E72D5C /* Jost-ThinItalic.ttf */; };
+		6B3406302812CC3300B3C2DF /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B34062F2812CC3300B3C2DF /* GameView.swift */; };
 		6BEFE60D280DCEFD000C5669 /* QuizzaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEFE60C280DCEFD000C5669 /* QuizzaApp.swift */; };
 		6BEFE60F280DCEFD000C5669 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEFE60E280DCEFD000C5669 /* ContentView.swift */; };
 		6BEFE611280DCEFE000C5669 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BEFE610280DCEFE000C5669 /* Assets.xcassets */; };
@@ -14,6 +35,28 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B14CE0C280F69A100E72D5C /* Jost-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		6B14CE0D280F69A100E72D5C /* Jost-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		6B14CE11280F6AC000E72D5C /* Jost-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-Medium.ttf"; sourceTree = "<group>"; };
+		6B14CE12280F6AC000E72D5C /* Jost-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-Bold.ttf"; sourceTree = "<group>"; };
+		6B14CE13280F6AC000E72D5C /* Jost-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-SemiBold.ttf"; sourceTree = "<group>"; };
+		6B14CE14280F6AC000E72D5C /* Jost-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-Regular.ttf"; sourceTree = "<group>"; };
+		6B14CE15280F6AC000E72D5C /* Jost-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-ExtraLight.ttf"; sourceTree = "<group>"; };
+		6B14CE16280F6AC000E72D5C /* Jost-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-BoldItalic.ttf"; sourceTree = "<group>"; };
+		6B14CE17280F6AC000E72D5C /* Jost-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-MediumItalic.ttf"; sourceTree = "<group>"; };
+		6B14CE18280F6AC000E72D5C /* Jost-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-ThinItalic.ttf"; sourceTree = "<group>"; };
+		6B14CE19280F6AC000E72D5C /* Jost-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-Black.ttf"; sourceTree = "<group>"; };
+		6B14CE1A280F6AC000E72D5C /* Jost-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-LightItalic.ttf"; sourceTree = "<group>"; };
+		6B14CE1B280F6AC000E72D5C /* Jost-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		6B14CE1C280F6AC000E72D5C /* Jost-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-Thin.ttf"; sourceTree = "<group>"; };
+		6B14CE1D280F6AC000E72D5C /* Jost-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-Light.ttf"; sourceTree = "<group>"; };
+		6B14CE1E280F6AC000E72D5C /* Jost-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		6B14CE1F280F6AC000E72D5C /* Jost-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		6B14CE20280F6AC000E72D5C /* Jost-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-Italic.ttf"; sourceTree = "<group>"; };
+		6B14CE21280F6AC000E72D5C /* Jost-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-BlackItalic.ttf"; sourceTree = "<group>"; };
+		6B14CE22280F6AC000E72D5C /* Jost-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-ExtraBold.ttf"; sourceTree = "<group>"; };
+		6B14CE63280F6C0E00E72D5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6B34062F2812CC3300B3C2DF /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		6BEFE609280DCEFD000C5669 /* Quizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BEFE60C280DCEFD000C5669 /* QuizzaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzaApp.swift; sourceTree = "<group>"; };
 		6BEFE60E280DCEFD000C5669 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +75,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B14CE10280F69A700E72D5C /* font */ = {
+			isa = PBXGroup;
+			children = (
+				6B14CE0D280F69A100E72D5C /* Jost-Italic-VariableFont_wght.ttf */,
+				6B14CE19280F6AC000E72D5C /* Jost-Black.ttf */,
+				6B14CE21280F6AC000E72D5C /* Jost-BlackItalic.ttf */,
+				6B14CE12280F6AC000E72D5C /* Jost-Bold.ttf */,
+				6B14CE16280F6AC000E72D5C /* Jost-BoldItalic.ttf */,
+				6B14CE22280F6AC000E72D5C /* Jost-ExtraBold.ttf */,
+				6B14CE1E280F6AC000E72D5C /* Jost-ExtraBoldItalic.ttf */,
+				6B14CE15280F6AC000E72D5C /* Jost-ExtraLight.ttf */,
+				6B14CE1B280F6AC000E72D5C /* Jost-ExtraLightItalic.ttf */,
+				6B14CE20280F6AC000E72D5C /* Jost-Italic.ttf */,
+				6B14CE1D280F6AC000E72D5C /* Jost-Light.ttf */,
+				6B14CE1A280F6AC000E72D5C /* Jost-LightItalic.ttf */,
+				6B14CE11280F6AC000E72D5C /* Jost-Medium.ttf */,
+				6B14CE17280F6AC000E72D5C /* Jost-MediumItalic.ttf */,
+				6B14CE14280F6AC000E72D5C /* Jost-Regular.ttf */,
+				6B14CE13280F6AC000E72D5C /* Jost-SemiBold.ttf */,
+				6B14CE1F280F6AC000E72D5C /* Jost-SemiBoldItalic.ttf */,
+				6B14CE1C280F6AC000E72D5C /* Jost-Thin.ttf */,
+				6B14CE18280F6AC000E72D5C /* Jost-ThinItalic.ttf */,
+				6B14CE0C280F69A100E72D5C /* Jost-VariableFont_wght.ttf */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
 		6BEFE600280DCEFD000C5669 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +121,11 @@
 		6BEFE60B280DCEFD000C5669 /* Quizza */ = {
 			isa = PBXGroup;
 			children = (
+				6B14CE63280F6C0E00E72D5C /* Info.plist */,
 				6BEFE60C280DCEFD000C5669 /* QuizzaApp.swift */,
 				6BEFE60E280DCEFD000C5669 /* ContentView.swift */,
+				6B34062F2812CC3300B3C2DF /* GameView.swift */,
+				6B14CE10280F69A700E72D5C /* font */,
 				6BEFE610280DCEFE000C5669 /* Assets.xcassets */,
 				6BEFE612280DCEFE000C5669 /* Preview Content */,
 			);
@@ -125,8 +198,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B14CE53280F6B6B00E72D5C /* Jost-Bold.ttf in Resources */,
+				6B14CE57280F6B8700E72D5C /* Jost-ExtraLight.ttf in Resources */,
+				6B14CE59280F6B8E00E72D5C /* Jost-Italic.ttf in Resources */,
+				6B14CE5F280F6BA000E72D5C /* Jost-SemiBold.ttf in Resources */,
+				6B14CE5B280F6B9300E72D5C /* Jost-LightItalic.ttf in Resources */,
+				6B14CE60280F6BA600E72D5C /* Jost-SemiBoldItalic.ttf in Resources */,
 				6BEFE614280DCEFE000C5669 /* Preview Assets.xcassets in Resources */,
+				6B14CE62280F6BAC00E72D5C /* Jost-ThinItalic.ttf in Resources */,
+				6B14CE5E280F6B9B00E72D5C /* Jost-Regular.ttf in Resources */,
+				6B14CE5D280F6B9900E72D5C /* Jost-MediumItalic.ttf in Resources */,
+				6B14CE61280F6BA900E72D5C /* Jost-Thin.ttf in Resources */,
+				6B14CE56280F6B8300E72D5C /* Jost-ExtraBoldItalic.ttf in Resources */,
+				6B14CE58280F6B8A00E72D5C /* Jost-ExtraLightItalic.ttf in Resources */,
+				6B14CE55280F6B8000E72D5C /* Jost-ExtraBold.ttf in Resources */,
+				6B14CE51280F6B6500E72D5C /* Jost-Black.ttf in Resources */,
+				6B14CE5C280F6B9500E72D5C /* Jost-Medium.ttf in Resources */,
+				6B14CE54280F6B6E00E72D5C /* Jost-BoldItalic.ttf in Resources */,
+				6B14CE0F280F69A100E72D5C /* Jost-Italic-VariableFont_wght.ttf in Resources */,
 				6BEFE611280DCEFE000C5669 /* Assets.xcassets in Resources */,
+				6B14CE52280F6B6900E72D5C /* Jost-BlackItalic.ttf in Resources */,
+				6B14CE0E280F69A100E72D5C /* Jost-VariableFont_wght.ttf in Resources */,
+				6B14CE5A280F6B9000E72D5C /* Jost-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BEFE60F280DCEFD000C5669 /* ContentView.swift in Sources */,
+				6B3406302812CC3300B3C2DF /* GameView.swift in Sources */,
 				6BEFE60D280DCEFD000C5669 /* QuizzaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +366,7 @@
 				DEVELOPMENT_TEAM = 6ATM8KJ47N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Quizza/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -301,6 +396,7 @@
 				DEVELOPMENT_TEAM = 6ATM8KJ47N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Quizza/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
