@@ -27,14 +27,7 @@
 import SwiftUI
 import Combine
 
-
-struct CustomColors {
-    static let natureColor = Color("Nature")
-    static let natureColorBackground = Color("NatureBackground")
-}
-
 struct ContentView: View {
-    
     let topics = ["Nature", "Science", "Sports", "Misc", "Arts", "Geography"]
     @State private var currentTopic = "Nature"
     @State private var currentTitle = "Quizza"
@@ -46,14 +39,19 @@ struct ContentView: View {
     
     //MARK: Timer
     
-    @State private var isHidden = true
     @State private var timeRemaining = 60
-    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var timer = Timer.publish(every: 1, on: .main, in:.common).autoconnect()
     @State var isTimerRunning = false
     @State private var startTime =  Date()
     @State private var timerString = "0.00"
-    @State private var playButtonHidden = true
+
     @State private var connectedTimer: Cancellable? = nil
+    
+    //MARK: Animations
+    @State private var controlsAreHidden = true
+    @State private var fadeInOutTitle = false
+    @State private var buttonFade = false
+    
     
     func instantiateTimer() {
         self.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -88,10 +86,11 @@ struct ContentView: View {
     }
     
     func gameStarts() {
-//        withAnimation(.interpolatingSpring(stiffness: 10, damping: 5)) {
-        withAnimation(.easeInOut(duration: 1)) {
-            currentTitle = ""
+        withAnimation(.interpolatingSpring(stiffness: 10, damping: 5)) {
+            
             currentTopic = question
+            fadeInOutTitle.toggle()
+            buttonFade.toggle()
             currentButtonTitle = ""
             restartTimer()
         }
@@ -99,16 +98,16 @@ struct ContentView: View {
     
     func gameEnds() {
         withAnimation(.interpolatingSpring(stiffness: 10, damping: 5)) {
-            currentTitle = "Quizza"
+            
             currentTopic = "Nature"
-            currentButtonTitle = "START"
+            fadeInOutTitle.toggle()
+            controlsAreHidden.toggle()
             stopTimer()
-            withAnimation(.easeInOut) {
-            isHidden.toggle()
-            }
             restartTimer()
         }
+            currentButtonTitle = "START"
         
+
     }
     
     var body: some View {
@@ -123,6 +122,8 @@ struct ContentView: View {
                         Text(currentTitle)
                             .foregroundColor(.white)
                             .font(.custom("Jost-SemiBoldItalic", size: 60))
+                            .opacity(fadeInOutTitle ? 0 : 1)
+                        
                         
                         Text(currentTopic)
                             .padding([.leading, .trailing])
@@ -179,7 +180,7 @@ struct ContentView: View {
                                 }
                         }
                         Text("\(timeRemaining)")
-                            .opacity(isHidden ? 0 : 1)
+                            .opacity(controlsAreHidden ? 0 : 1)
                             .font(.custom("Jost-SemiBold", size: 35))
                             .foregroundColor(.white)
                             .onReceive(timer) { time in
@@ -194,15 +195,17 @@ struct ContentView: View {
                             }
                         
                         Button(currentButtonTitle) {
-                            
+
+                            buttonFade.toggle()
                             gameStarts()
                             withAnimation(.easeInOut) {
-                            isHidden.toggle()
+                                controlsAreHidden.toggle()
                             }
-                            playButtonHidden.toggle()
+
                         }
                         .foregroundColor(.white)
                         .font(.custom("Jost-SemiBold", size: 30))
+                        .opacity(buttonFade ? 0 : 1)
                     }
                     Spacer()
                     Spacer()
@@ -213,17 +216,18 @@ struct ContentView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         if isTimerRunning {
-                        
+                            
                             self.stopTimer()
                             
                         } else {
                             timerString = timerString.self
                             
-                            
                             self.startTimer()
                         }
                         isTimerRunning.toggle()
+                        
                     } label: {
+                        
                         if isTimerRunning {
                             Image(systemName: "pause.fill")
                                 .font(.headline)
@@ -234,7 +238,7 @@ struct ContentView: View {
                                 .foregroundColor(.white)
                         }
                     }
-                    .opacity(isHidden ? 0 : 1)
+                    .opacity(controlsAreHidden ? 0 : 1)
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -244,20 +248,16 @@ struct ContentView: View {
                             .font(.headline)
                             .foregroundColor(.white)
                     }
-                    
-                    .opacity(isHidden ? 0 : 1)
-                    
+                    .opacity(controlsAreHidden ? 0 : 1)
                 }
-                
             }
         }
     }
 }
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .previewInterfaceOrientation(.portrait)
+            .preferredColorScheme(.light)
     }
 }
