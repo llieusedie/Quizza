@@ -27,6 +27,7 @@
 		6B14CE60280F6BA600E72D5C /* Jost-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE1F280F6AC000E72D5C /* Jost-SemiBoldItalic.ttf */; };
 		6B14CE61280F6BA900E72D5C /* Jost-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE1C280F6AC000E72D5C /* Jost-Thin.ttf */; };
 		6B14CE62280F6BAC00E72D5C /* Jost-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B14CE18280F6AC000E72D5C /* Jost-ThinItalic.ttf */; };
+		6B9A11DD281B3518001473A3 /* questions.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6B9A11DC281B3518001473A3 /* questions.txt */; };
 		6BA503D728187365002167E9 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA503D628187365002167E9 /* ColorView.swift */; };
 		6BEFE60D280DCEFD000C5669 /* QuizzaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEFE60C280DCEFD000C5669 /* QuizzaApp.swift */; };
 		6BEFE60F280DCEFD000C5669 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEFE60E280DCEFD000C5669 /* ContentView.swift */; };
@@ -56,6 +57,7 @@
 		6B14CE21280F6AC000E72D5C /* Jost-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-BlackItalic.ttf"; sourceTree = "<group>"; };
 		6B14CE22280F6AC000E72D5C /* Jost-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-ExtraBold.ttf"; sourceTree = "<group>"; };
 		6B14CE63280F6C0E00E72D5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6B9A11DC281B3518001473A3 /* questions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = questions.txt; sourceTree = "<group>"; };
 		6BA503D628187365002167E9 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		6BEFE609280DCEFD000C5669 /* Quizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BEFE60C280DCEFD000C5669 /* QuizzaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzaApp.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				6B14CE63280F6C0E00E72D5C /* Info.plist */,
 				6BEFE60C280DCEFD000C5669 /* QuizzaApp.swift */,
 				6BEFE60E280DCEFD000C5669 /* ContentView.swift */,
+				6B9A11DC281B3518001473A3 /* questions.txt */,
 				6BA503D628187365002167E9 /* ColorView.swift */,
 				6B14CE10280F69A700E72D5C /* font */,
 				6BEFE610280DCEFE000C5669 /* Assets.xcassets */,
@@ -202,6 +205,7 @@
 				6B14CE57280F6B8700E72D5C /* Jost-ExtraLight.ttf in Resources */,
 				6B14CE59280F6B8E00E72D5C /* Jost-Italic.ttf in Resources */,
 				6B14CE5F280F6BA000E72D5C /* Jost-SemiBold.ttf in Resources */,
+				6B9A11DD281B3518001473A3 /* questions.txt in Resources */,
 				6B14CE5B280F6B9300E72D5C /* Jost-LightItalic.ttf in Resources */,
 				6B14CE60280F6BA600E72D5C /* Jost-SemiBoldItalic.ttf in Resources */,
 				6BEFE614280DCEFE000C5669 /* Preview Assets.xcassets in Resources */,

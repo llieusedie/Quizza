@@ -32,30 +32,29 @@ struct ContentView: View {
     @State private var currentTopic = "Nature"
     @State private var currentTitle = "Quizza"
     @State private var currentButtonTitle = "START"
-    @State private var question = "Name types of trees"
-    @State private var animationAmount = 1.0
+//    @State private var question = "Name types of trees"
+    
+    
+//MARK: Colors
     @State private var currentButtonColor = CustomColors.natureColor
     @State private var currentBackgroundColor = CustomColors.natureColorBackground
     
-    //MARK: Timer
     
-    @State private var timeRemaining = 60
-    @State private var timer = Timer.publish(every: 1, on: .main, in:.common).autoconnect()
-    @State var isTimerRunning = false
-    @State private var startTime =  Date()
-    @State private var timerString = "0.00"
-
-    @State private var connectedTimer: Cancellable? = nil
-    
-    //MARK: Animations
+//MARK: Animations
     @State private var controlsAreHidden = true
     @State private var fadeInOutTitle = false
     @State private var buttonFade = false
+    @State private var animationAmount = 1.0
     
+//MARK: Timer
+    @State private var timeRemaining = 60
+    @State private var timer = Timer.publish(every: 1, on: .main, in:.common).autoconnect()
+    @State var isTimerRunning = true
+    @State private var startTime =  Date()
+    @State private var connectedTimer: Cancellable? = nil
     
     func instantiateTimer() {
         self.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-        
         return
     }
     
@@ -88,7 +87,7 @@ struct ContentView: View {
     func gameStarts() {
         withAnimation(.interpolatingSpring(stiffness: 10, damping: 5)) {
             
-            currentTopic = question
+            currentTopic = quizQuestion
             fadeInOutTitle.toggle()
             buttonFade.toggle()
             currentButtonTitle = ""
@@ -110,11 +109,31 @@ struct ContentView: View {
 
     }
     
+//MARK: Questions
+@State private var quizQuestion = ""
+    
+    func populateQuestion() {
+        
+        if let startQuestionsURL = Bundle.main.url(forResource: "questions", withExtension: "txt") {
+            
+            if let startQuestion = try? String(contentsOf: startQuestionsURL) {
+                
+                let allQuestions = startQuestion.components(separatedBy: "\n")
+                
+                quizQuestion = allQuestions.randomElement() ?? "Oh wow I couldn't upload questions..."
+                return
+            }
+        }
+        fatalError("Could not load questions from bundle.")
+        
+    }
+    
     var body: some View {
         
         NavigationView {
             ZStack {
-                Color(UIColor(currentBackgroundColor)).ignoresSafeArea() //background color
+                Color(UIColor(currentBackgroundColor)).ignoresSafeArea()
+                    //background color
                 
                 VStack {
                     VStack(spacing: 10) {
@@ -129,6 +148,8 @@ struct ContentView: View {
                             .padding([.leading, .trailing])
                             .foregroundColor(.white)
                             .font(.custom("Jost-LightItalic", size: 30))
+                            .border(.black, width: 5)
+                            
                     }
                     Spacer()
                     ZStack {
@@ -190,13 +211,13 @@ struct ContentView: View {
                             }
                         
                             .onAppear() {
-                                // no need for UI updates at startup
                                 self.stopTimer()
                             }
                         
                         Button(currentButtonTitle) {
 
                             buttonFade.toggle()
+                            populateQuestion()
                             gameStarts()
                             withAnimation(.easeInOut) {
                                 controlsAreHidden.toggle()
@@ -220,7 +241,6 @@ struct ContentView: View {
                             self.stopTimer()
                             
                         } else {
-                            timerString = timerString.self
                             
                             self.startTimer()
                         }
@@ -232,7 +252,7 @@ struct ContentView: View {
                             Image(systemName: "pause.fill")
                                 .font(.headline)
                                 .foregroundColor(.white)
-                        } else {
+                        } else if !isTimerRunning {
                             Image(systemName: "play.fill")
                                 .font(.headline)
                                 .foregroundColor(.white)
