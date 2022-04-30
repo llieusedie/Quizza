@@ -32,7 +32,7 @@ struct ContentView: View {
     @State private var currentTopic = "Nature"
     @State private var currentTitle = "Quizza"
     @State private var currentButtonTitle = "START"
-//    @State private var question = "Name types of trees"
+    @State private var currentTitleQuestion = ""
     
     
 //MARK: Colors
@@ -45,6 +45,8 @@ struct ContentView: View {
     @State private var fadeInOutTitle = false
     @State private var buttonFade = false
     @State private var animationAmount = 1.0
+    @State private var fadeInOutQuestionTitle = true
+    
     
 //MARK: Timer
     @State private var timeRemaining = 60
@@ -87,11 +89,12 @@ struct ContentView: View {
     func gameStarts() {
         withAnimation(.interpolatingSpring(stiffness: 10, damping: 5)) {
             
-            currentTopic = quizQuestion
             fadeInOutTitle.toggle()
             buttonFade.toggle()
             currentButtonTitle = ""
             restartTimer()
+            currentTitleQuestion = quizQuestion
+            fadeInOutQuestionTitle.toggle()
         }
     }
     
@@ -103,6 +106,7 @@ struct ContentView: View {
             controlsAreHidden.toggle()
             stopTimer()
             restartTimer()
+            fadeInOutQuestionTitle.toggle()
         }
             currentButtonTitle = "START"
         
@@ -131,26 +135,37 @@ struct ContentView: View {
     var body: some View {
         
         NavigationView {
+            
             ZStack {
                 Color(UIColor(currentBackgroundColor)).ignoresSafeArea()
                     //background color
                 
                 VStack {
                     VStack(spacing: 10) {
-                        
+                        ZStack {
+                        Text(currentTitleQuestion)
+                                .padding(.leading, 20)
+                                .padding(.trailing, 20)
+                                .foregroundColor(.white)
+                                .font(.custom("Jost-Italic", size: 30))
+                                .opacity(fadeInOutQuestionTitle ? 0 : 1)
+                                
+                                
                         Text(currentTitle)
                             .foregroundColor(.white)
                             .font(.custom("Jost-SemiBoldItalic", size: 60))
                             .opacity(fadeInOutTitle ? 0 : 1)
-                        
+                        }
                         
                         Text(currentTopic)
                             .padding([.leading, .trailing])
                             .foregroundColor(.white)
-                            .font(.custom("Jost-LightItalic", size: 30))
-                            .border(.black, width: 5)
+                            .font(.custom("Jost-Light", size: 30))
+
                             
                     }
+//                    Spacer()
+                        
                     Spacer()
                     ZStack {
                         ZStack {
