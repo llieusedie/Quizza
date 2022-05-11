@@ -27,8 +27,12 @@
 import SwiftUI
 import Combine
 
+
+
 struct ContentView: View {
-    let topics = ["Nature", "Science", "Sports", "Misc", "Arts", "Geography"]
+
+    let topics = [ "Nature", "Science", "Sports", "Misc", "Arts", "Geography"]
+    
     @State private var currentTopic = "Nature"
     @State private var currentTitle = "Quizza"
     @State private var currentButtonTitle = "START"
@@ -36,16 +40,41 @@ struct ContentView: View {
     
     
 //MARK: Colors
-    @State private var currentButtonColor = CustomColors.natureColor
-    @State private var currentBackgroundColor = CustomColors.natureColorBackground
+    @State private var currentButtonColor = CustomColors.nature
+    @State private var currentBackgroundColor = CustomColors.natureBackground
     
+    func dynamicColorChange() {
+        withAnimation(.spring().speed(0.5)) {
+            if currentTopic == "Nature" {
+                currentBackgroundColor = CustomColors.natureBackground
+                currentButtonColor = CustomColors.nature
+                
+            } else if currentTopic == "Sports" {
+                currentBackgroundColor = CustomColors.sportsBackground
+                currentButtonColor = CustomColors.sports
+                
+            } else if currentTopic == "Arts" {
+                currentBackgroundColor = CustomColors.artBackground
+                currentButtonColor = CustomColors.art
+                
+            } else if currentTopic == "Science" {
+                currentBackgroundColor = CustomColors.scienceBackground
+                currentButtonColor = CustomColors.science
+            }
+        }
+    }
     
 //MARK: Animations
     @State private var controlsAreHidden = true
     @State private var fadeInOutTitle = false
     @State private var buttonFade = false
-    @State private var animationAmount = 1.0
     @State private var fadeInOutQuestionTitle = true
+    @State private var carouselHidden = false
+    @State private var bottomBarHidden = false
+    @State private var animationAmount = 1.0
+    
+//MARK: Questions
+    @State private var quizQuestion = ""
     
     
 //MARK: Timer
@@ -54,7 +83,8 @@ struct ContentView: View {
     @State var isTimerRunning = true
     @State private var startTime =  Date()
     @State private var connectedTimer: Cancellable? = nil
-    
+
+//MARK: Timer Functions
     func instantiateTimer() {
         self.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
         return
@@ -64,61 +94,56 @@ struct ContentView: View {
         self.connectedTimer?.cancel()
         return
     }
-    
     func resetCounter() {
         self.timeRemaining = 60
         return
     }
-    
     func restartTimer() {
         self.resetCounter()
         self.cancelTimer()
         self.instantiateTimer()
         return
     }
-    
     func stopTimer() {
         self.timer.upstream.connect().cancel()
         
     }
-    
     func startTimer() {
         self.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     }
     
+//MARK: Game manage functions
     func gameStarts() {
         withAnimation(.interpolatingSpring(stiffness: 10, damping: 5)) {
             
             fadeInOutTitle.toggle()
             buttonFade.toggle()
+            fadeInOutQuestionTitle.toggle()
+            carouselHidden.toggle()
+            bottomBarHidden.toggle()
             currentButtonTitle = ""
             restartTimer()
             currentTitleQuestion = quizQuestion
-            fadeInOutQuestionTitle.toggle()
+            
         }
     }
-    
     func gameEnds() {
         withAnimation(.interpolatingSpring(stiffness: 10, damping: 5)) {
             
-            currentTopic = "Nature"
             fadeInOutTitle.toggle()
             controlsAreHidden.toggle()
+            fadeInOutQuestionTitle.toggle()
+            carouselHidden.toggle()
+            bottomBarHidden.toggle()
             stopTimer()
             restartTimer()
-            fadeInOutQuestionTitle.toggle()
+            
         }
             currentButtonTitle = "START"
-        
-
     }
-    
-//MARK: Questions
-@State private var quizQuestion = ""
-    
     func populateQuestion() {
         
-        if let startQuestionsURL = Bundle.main.url(forResource: "questions", withExtension: "txt") {
+        if let startQuestionsURL = Bundle.main.url(forResource: "\(currentTopic)Questions", withExtension: "txt") {
             
             if let startQuestion = try? String(contentsOf: startQuestionsURL) {
                 
@@ -129,17 +154,29 @@ struct ContentView: View {
             }
         }
         fatalError("Could not load questions from bundle.")
-        
     }
     
-    var body: some View {
+//MARK: Carousel
+    private func getScale(proxy: GeometryProxy) -> CGFloat {
         
+        var scale: CGFloat = 1
+        
+        let x = proxy.frame(in: .global).minX
+        
+        let diff = abs(x - 130)
+        
+        if diff < 100 {
+            scale = 1 + (100 - diff) / 500
+        }
+        
+        return scale
+    }
+
+    
+    var body: some View {
         NavigationView {
-            
             ZStack {
                 Color(UIColor(currentBackgroundColor)).ignoresSafeArea()
-                    //background color
-                
                 VStack {
                     VStack(spacing: 10) {
                         ZStack {
@@ -149,20 +186,38 @@ struct ContentView: View {
                                 .foregroundColor(.white)
                                 .font(.custom("Jost-Italic", size: 30))
                                 .opacity(fadeInOutQuestionTitle ? 0 : 1)
-                                
-                                
+                                 
                         Text(currentTitle)
                             .foregroundColor(.white)
                             .font(.custom("Jost-SemiBoldItalic", size: 60))
                             .opacity(fadeInOutTitle ? 0 : 1)
                         }
                         
-                        Text(currentTopic)
-                            .padding([.leading, .trailing])
-                            .foregroundColor(.white)
-                            .font(.custom("Jost-Light", size: 30))
-
-                            
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 30) {
+                                ForEach(topics, id: \.self) { topic in
+                                    GeometryReader { proxy in
+                                        
+                                        let scale = getScale(proxy: proxy)
+                                        Button {
+                                            currentTopic = topic
+                                            dynamicColorChange()
+                                        } label: {
+                                            Text(topic)
+                                                .font(.custom("Jost-Regular", size: 30))
+                                                .shadow(radius: 1)
+                                                .foregroundColor(.white)
+                                                .frame(width: 150, alignment: .center)
+                                                .clipped()
+                                                .scaleEffect(CGSize(width: scale, height: scale))
+                                        }
+                                    }
+                                        .frame(width: 150, height: 50)
+                                }
+                            }
+                            .padding([.leading, .trailing], 120)
+                        }
+                        .opacity(carouselHidden ? 0 : 1)
                     }
 //                    Spacer()
                         
@@ -237,7 +292,6 @@ struct ContentView: View {
                             withAnimation(.easeInOut) {
                                 controlsAreHidden.toggle()
                             }
-
                         }
                         .foregroundColor(.white)
                         .font(.custom("Jost-SemiBold", size: 30))
@@ -275,7 +329,7 @@ struct ContentView: View {
                     }
                     .opacity(controlsAreHidden ? 0 : 1)
                 }
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button {
                         gameEnds()
                     } label: {
@@ -285,10 +339,49 @@ struct ContentView: View {
                     }
                     .opacity(controlsAreHidden ? 0 : 1)
                 }
+                
+                ToolbarItemGroup(placement: .bottomBar) {
+                    HStack(spacing: 20) {
+                        NavigationLink {
+                            SettingsView()
+                        } label: {
+                            Image(systemName: "gearshape.fill")
+                                .foregroundColor(.white)
+                                .font(.system(size: 30))
+                        }
+                        
+                        RoundedRectangle(cornerRadius: 1)
+                            .frame(width: 3, height: 20)
+                            .foregroundColor(.white).opacity(0.5)
+                        
+                        NavigationLink {
+                            //
+                        } label: {
+                            Image(systemName: "paintpalette.fill")
+                                .foregroundColor(.white)
+                                .font(.system(size: 30))
+                        }
+                        
+                        RoundedRectangle(cornerRadius: 1)
+                            .frame(width: 3, height: 20)
+                            .foregroundColor(.white).opacity(0.5)
+                        
+                        NavigationLink {
+                            //
+                        } label: {
+                            Image(systemName: "cart.fill")
+                                .foregroundColor(.white)
+                                .font(.system(size: 30))
+                        }
+                    }
+                    .padding(.bottom, 15)
+                    .opacity(bottomBarHidden ? 0 : 1)
+                }
             }
         }
     }
 }
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
